@@ -3,7 +3,6 @@ import styled from "styled-components";
 export const Container = styled.main`
   display: flex;
   align-items: center;
-  justify-content: center;
   height: 100%;
   flex-direction: column;
 `;
@@ -14,6 +13,7 @@ export const Form = styled.form`
   align-content: center;
   gap: 6px;
   margin-bottom: 25px;
+  margin-top: 30px;
 `;
 
 export const Input = styled.input`
@@ -22,6 +22,9 @@ export const Input = styled.input`
   background-color: white;
   border: 1px solid #d5d5d5;
   border-radius: 5px;
+  padding-left: 11px;
+  font-size: 20px;
+  font-family: "Lexend Deca", sans-serif;
 
   ::placeholder {
     font-family: "Lexend Deca", sans-serif;
@@ -38,4 +41,8 @@ export const Button = styled.button`
   border-radius: 5px;
   font-size: 21px;
   background: #52b6ff;
+`;
+
+export const Logo = styled.img`
+  margin-top: 68px;
 `;
