@@ -4,23 +4,27 @@ import { useState } from "react";
 import LoginScreen from "./components/LoginScreen";
 import RegisterScreen from "./components/RegisterScreen";
 import UserContext from "./contexts/UserContext";
+import TodayScreen from "./components/TodayScreen";
 
 import { Reset } from "./global-styles/Reset";
 import { GlobalStyle } from "./global-styles/GlobalStyle";
 
 export default function App() {
-  const [token, SetToken] = useState(JSON.parse(localStorage.getItem("token")));
+  const [userInfo, SetUserInfo] = useState(
+    JSON.parse(localStorage.getItem("userInfo"))
+  );
 
-  console.log(token);
+  console.log(userInfo);
 
   return (
     <BrowserRouter>
       <Reset />
       <GlobalStyle />
-      <UserContext.Provider value={{ token, SetToken }}>
+      <UserContext.Provider value={{ userInfo, SetUserInfo }}>
         <Routes>
           <Route path="/" element={<LoginScreen />} />
           <Route path="/cadastro" element={<RegisterScreen />} />
+          <Route path="/hoje" element={<TodayScreen />} />
         </Routes>
       </UserContext.Provider>
     </BrowserRouter>

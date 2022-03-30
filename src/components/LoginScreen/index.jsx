@@ -1,6 +1,6 @@
 import logo from "../../images/logo.svg";
 
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import { ThreeDots } from "react-loader-spinner";
 import { useState, useContext } from "react";
@@ -18,7 +18,8 @@ import UserContext from "../../contexts/UserContext";
 export default function LoginScreen() {
   const [login, SetLogin] = useState({ email: "", password: "" });
   const [submited, SetSubmited] = useState(false);
-  const { SetToken } = useContext(UserContext);
+  const { SetUserInfo } = useContext(UserContext);
+  const Navigate = useNavigate();
 
   function handleSubmit(event) {
     event.preventDefault();
@@ -32,8 +33,12 @@ export default function LoginScreen() {
     promisse.then((obj) => {
       const { data } = obj;
 
-      localStorage.setItem("token", JSON.stringify(data.token));
-      SetToken(data.token);
+      localStorage.setItem(
+        "userInfo",
+        JSON.stringify({ token: data.token, image: data.image })
+      );
+      SetUserInfo({ token: data.token, image: data.image });
+      Navigate("/hoje");
     });
 
     promisse.catch((error) => {
