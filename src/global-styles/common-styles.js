@@ -41,6 +41,10 @@ export const Button = styled.button`
   border-radius: 5px;
   font-size: 21px;
   background: #52b6ff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
 `;
 
 export const Logo = styled.img`
