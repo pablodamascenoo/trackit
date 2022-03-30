@@ -46,3 +46,9 @@ export const Button = styled.button`
 export const Logo = styled.img`
   margin-top: 68px;
 `;
+
+export const Anchor = styled.p`
+  color: #52b6ff;
+  text-decoration: underline;
+  text-decoration-color: #52b6ff;
+`;
