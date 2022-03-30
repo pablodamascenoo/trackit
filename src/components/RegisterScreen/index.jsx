@@ -44,7 +44,7 @@ export default function RegisterScreen() {
     });
 
     promisse.catch((error) => {
-      alert(error.response);
+      alert(error.response.data.message);
       SetSubmited(false);
     });
   }
