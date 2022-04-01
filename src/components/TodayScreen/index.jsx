@@ -6,14 +6,15 @@ import { Container, Content } from "./style";
 
 import dayjs from "dayjs";
 import { useContext, useEffect, useState } from "react";
-import UserContext from "../../contexts/UserContext";
 import axios from "axios";
+import UserContext from "../../contexts/UserContext";
+import PercentContext from "../../contexts/PercentContext";
 
 export default function TodayScreen() {
   require("dayjs/locale/pt-br");
 
   const [habits, SetHabits] = useState([]);
-  const [doneTasks, SetDoneTasks] = useState([]);
+  const { percent, SetPercent } = useContext(PercentContext);
   const [state, SetState] = useState(false);
 
   const { userInfo } = useContext(UserContext);
@@ -32,12 +33,18 @@ export default function TodayScreen() {
     promisse.then((obj) => {
       const { data } = obj;
       SetHabits([...data]);
-      SetDoneTasks(data.filter((item) => (item.done ? true : false)));
+      SetPercent(
+        (
+          data.filter((item) => (item.done ? true : false)).length / data.length
+        ).toFixed(2)
+      );
     });
   }, [state]);
 
   function toggleCheck(id) {
-    const checkId = doneTasks.filter((task) => (task.id === id ? true : false));
+    const checkId = habits.filter((task) =>
+      task.id === id && task.done ? true : false
+    );
 
     if (checkId.length === 0) {
       const promisse = axios.post(
@@ -73,9 +80,13 @@ export default function TodayScreen() {
   return (
     <Container>
       <Top />
-      <Content>
+      <Content done={percent}>
         <h2>{dayjs().locale("pt-br").format("dddd, DD/MM")}</h2>
-        <h3>Nenhum hábito concluído ainda</h3>
+        <h3>
+          {percent !== 0
+            ? `${percent * 100}% dos hábitos concluídos`
+            : "Nenhum hábito concluído ainda"}
+        </h3>
         <div>
           {habits.map((habit) => (
             <Habits
@@ -90,7 +101,7 @@ export default function TodayScreen() {
           ))}
         </div>
       </Content>
-      <Menu done={doneTasks.length / habits.length} />
+      <Menu done={percent} />
     </Container>
   );
 }

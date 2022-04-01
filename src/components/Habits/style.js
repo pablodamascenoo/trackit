@@ -34,3 +34,9 @@ export const CheckBox = styled.div`
   justify-content: center;
   cursor: pointer;
 `;
+
+export const Strike = styled.span`
+  font-size: 13px;
+  line-height: 16px;
+  color: ${(props) => (props.checked ? "#8FC549" : "#666666")};
+`;

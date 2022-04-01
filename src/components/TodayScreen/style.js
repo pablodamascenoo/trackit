@@ -15,7 +15,7 @@ export const Content = styled.article`
   }
 
   & > h3 {
-    color: #bababa;
+    color: ${(props) => (props.done > 0 ? "#8FC549" : "#bababa")};
     font-size: 18px;
     line-height: 22px;
   }
