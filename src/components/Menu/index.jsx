@@ -9,11 +9,11 @@ export default function Menu({ done }) {
   return (
     <Footer>
       <div>
-        <Link to="/">
+        <Link to="/habitos">
           <p>Hábitos</p>
         </Link>
         <div>
-          <Link to="/">
+          <Link to="/hoje">
             <CircularProgressbar
               maxValue={1}
               background={true}

@@ -3,9 +3,10 @@ import { useState } from "react";
 
 import LoginScreen from "./components/LoginScreen";
 import RegisterScreen from "./components/RegisterScreen";
+import TodayScreen from "./components/TodayScreen";
+import HabitsScreen from "./components/HabitsScreen";
 import UserContext from "./contexts/UserContext";
 import PercentContext from "./contexts/PercentContext";
-import TodayScreen from "./components/TodayScreen";
 
 import { Reset } from "./global-styles/Reset";
 import { GlobalStyle } from "./global-styles/GlobalStyle";
@@ -26,6 +27,7 @@ export default function App() {
             <Route path="/" element={<LoginScreen />} />
             <Route path="/cadastro" element={<RegisterScreen />} />
             <Route path="/hoje" element={<TodayScreen />} />
+            <Route path="/habitos" element={<HabitsScreen />} />
           </Routes>
         </PercentContext.Provider>
       </UserContext.Provider>

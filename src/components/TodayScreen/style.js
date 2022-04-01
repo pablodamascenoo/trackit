@@ -3,6 +3,7 @@ import styled from "styled-components";
 export const Container = styled.main`
   background-color: #f2f2f2;
   height: 100%;
+  overflow-y: scroll;
 `;
 
 export const Content = styled.article`
