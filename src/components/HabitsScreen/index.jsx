@@ -31,6 +31,10 @@ export default function HabitsScreen() {
     SetHabits([...habits, habit]);
   }
 
+  function delHabits(id) {
+    SetHabits([...habits.filter((habit) => (habit.id !== id ? true : false))]);
+  }
+
   useEffect(() => {
     const promisse = axios.get(
       "https://mock-api.bootcamp.respondeai.com.br/api/v2/trackit/habits",
@@ -69,9 +73,11 @@ export default function HabitsScreen() {
           <></>
         )}
         <HabitsBox>
-          {habits.map((habit, index) => (
+          {habits.map((habit) => (
             <HabitsEdit
-              key={index}
+              delHabits={delHabits}
+              habitId={habit.id}
+              key={habit.id}
               title={habit.name}
               selectedDays={habit.days}
               created={true}

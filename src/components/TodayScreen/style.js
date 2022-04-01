@@ -26,5 +26,6 @@ export const Content = styled.article`
     display: flex;
     flex-direction: column;
     gap: 10px;
+    margin-bottom: 120px;
   }
 `;

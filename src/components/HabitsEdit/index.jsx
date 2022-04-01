@@ -14,6 +14,8 @@ export default function HabitsEdit({
   addHabits,
   cancel,
   selectedDays,
+  habitId,
+  delHabits,
 }) {
   const [selecteds, SetSelecteds] = useState([]);
   const [input, SetInput] = useState("");
@@ -38,6 +40,21 @@ export default function HabitsEdit({
         ]);
   }
 
+  function handleDelete(id) {
+    const promisse = axios.delete(
+      `https://mock-api.bootcamp.respondeai.com.br/api/v2/trackit/habits/${id}`,
+      config
+    );
+
+    promisse.then(() => {
+      delHabits(id);
+    });
+
+    promisse.catch((error) => {
+      alert(error.response.data.message);
+    });
+  }
+
   function handleSubmit() {
     SetSubmited(true);
     const promisse = axios.post(
@@ -48,9 +65,9 @@ export default function HabitsEdit({
 
     promisse.then((obj) => {
       const { data } = obj;
+      SetSubmited(false);
       addHabits(data);
       cancel();
-      SetSubmited(false);
     });
 
     promisse.catch((error) => {
@@ -73,7 +90,17 @@ export default function HabitsEdit({
             onChange={(e) => SetInput(e.target.value)}
           />
         )}
-        {created ? <img src={trash} alt="trash" /> : <></>}
+        {created ? (
+          <img
+            src={trash}
+            onClick={() => {
+              handleDelete(habitId);
+            }}
+            alt="trash"
+          />
+        ) : (
+          <></>
+        )}
         <Days>
           {days.map((day) => {
             let alrSelected = selectedDays.includes(day) ? true : false;
