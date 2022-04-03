@@ -1,7 +1,8 @@
 import styled from "styled-components";
 
 export const Container = styled.div`
-  /* width: 100%; */
+  margin-top: 20px;
+  width: 100%;
   min-height: 91px;
   height: inherit;
   background-color: white;
@@ -18,12 +19,12 @@ export const Content = styled.div`
   width: 100%;
   height: 100%;
   padding: 16px;
-  margin-top: 20px;
 
   img {
     position: absolute;
     right: 11px;
     top: 11px;
+    cursor: pointer;
   }
 
   h2 {
@@ -34,7 +35,7 @@ export const Content = styled.div`
   }
 
   input {
-    width: 303px;
+    width: 100%;
     height: 45px;
     background: ${(props) => (props.disabled ? "#F2F2F2" : "white")};
     border: 1px solid #d5d5d5;

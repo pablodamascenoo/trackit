@@ -41,6 +41,8 @@ export default function HabitsEdit({
   }
 
   function handleDelete(id) {
+    if (!window.confirm("Deseja mesmo excluir esse hábito?")) return;
+
     const promisse = axios.delete(
       `https://mock-api.bootcamp.respondeai.com.br/api/v2/trackit/habits/${id}`,
       config

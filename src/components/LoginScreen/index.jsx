@@ -47,6 +47,7 @@ export default function LoginScreen() {
 
     promisse.catch((error) => {
       alert(error.response.data.message);
+      SetLogin({ email: "", password: "" });
       SetSubmited(false);
     });
   }

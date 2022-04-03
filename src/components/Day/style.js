@@ -8,5 +8,6 @@ export const Button = styled.button`
   border-radius: 5px;
   font-family: "Lexend Deca";
   font-size: 20px;
-  color: ${(props) => (props.selected ? "#ffffff" : "#dbdbdb")}; // dinamico
+  color: ${(props) => (props.selected ? "#ffffff" : "#dbdbdb")};
+  cursor: pointer;
 `;
