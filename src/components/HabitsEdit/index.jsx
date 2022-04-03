@@ -58,6 +58,11 @@ export default function HabitsEdit({
   }
 
   function handleSubmit() {
+    if (selecteds.length === 0) {
+      alert("Escolha pelo menos um dia para o hábito");
+      return;
+    }
+
     SetSubmited(true);
     const promisse = axios.post(
       "https://mock-api.bootcamp.respondeai.com.br/api/v2/trackit/habits",
