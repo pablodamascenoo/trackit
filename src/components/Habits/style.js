@@ -1,7 +1,6 @@
 import styled from "styled-components";
 
 export const Container = styled.section`
-  width: 340px;
   height: 94px;
   border-radius: 5px;
   background-color: white;

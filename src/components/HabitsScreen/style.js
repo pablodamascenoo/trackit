@@ -1,6 +1,8 @@
 import styled from "styled-components";
 
-export const TitleBox = styled.main`
+export const TitleBox = styled.div`
+  width: 100%;
+  max-width: 480px;
   padding-top: 98px;
   display: flex;
   align-items: center;
@@ -24,7 +26,13 @@ export const TitleBox = styled.main`
   }
 `;
 
-export const Content = styled.div`
+export const Content = styled.article`
+  width: 100%;
+  max-width: 480px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   padding: 0 18px;
   overflow-y: scroll;
 
@@ -36,6 +44,7 @@ export const Content = styled.div`
   }
 `;
 
-export const HabitsBox = styled.div`
+export const HabitsBox = styled.section`
+  width: 100%;
   padding-bottom: 110px;
 `;

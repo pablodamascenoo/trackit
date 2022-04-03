@@ -2,7 +2,7 @@ import Top from "../Top";
 import Menu from "../Menu";
 import Habits from "../Habits";
 
-import { Container, Content } from "./style";
+import { Container, Content, TitleBox } from "./style";
 
 import dayjs from "dayjs";
 import { useContext, useEffect, useState } from "react";
@@ -87,13 +87,15 @@ export default function TodayScreen() {
   return (
     <Container>
       <Top />
-      <Content done={percent}>
-        <h2>{dayjs().locale("pt-br").format("dddd, DD/MM")}</h2>
-        <h3>
-          {percent !== 0
-            ? `${percent * 100}% dos hábitos concluídos`
-            : "Nenhum hábito concluído ainda"}
-        </h3>
+      <Content>
+        <TitleBox done={percent}>
+          <h2>{dayjs().locale("pt-br").format("dddd, DD/MM")}</h2>
+          <h3>
+            {percent !== 0
+              ? `${percent * 100}% dos hábitos concluídos`
+              : "Nenhum hábito concluído ainda"}
+          </h3>
+        </TitleBox>
         <div>
           {habits.map((habit) => (
             <Habits

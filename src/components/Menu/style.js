@@ -15,7 +15,7 @@ export const Footer = styled.footer`
     align-items: center;
     justify-content: space-between;
     width: 100%;
-    padding: 0 36px;
+    padding: 0 31px;
   }
 
   a > p {
