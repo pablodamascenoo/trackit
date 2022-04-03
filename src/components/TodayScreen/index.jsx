@@ -9,6 +9,7 @@ import { useContext, useEffect, useState } from "react";
 import axios from "axios";
 import UserContext from "../../contexts/UserContext";
 import PercentContext from "../../contexts/PercentContext";
+import { useNavigate } from "react-router-dom";
 
 export default function TodayScreen() {
   require("dayjs/locale/pt-br");
@@ -17,14 +18,17 @@ export default function TodayScreen() {
   const { percent, SetPercent } = useContext(PercentContext);
   const [state, SetState] = useState(false);
 
+  const Navigate = useNavigate();
   const { userInfo } = useContext(UserContext);
+
   const config = {
     headers: {
-      Authorization: `Bearer ${userInfo.token}`,
+      Authorization: `Bearer ${userInfo !== null ? userInfo.token : null}`,
     },
   };
 
   useEffect(() => {
+    if (userInfo === null) Navigate("/");
     const promisse = axios.get(
       "https://mock-api.bootcamp.respondeai.com.br/api/v2/trackit/habits/today",
       config

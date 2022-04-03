@@ -3,7 +3,7 @@ import logo from "../../images/logo.svg";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import { ThreeDots } from "react-loader-spinner";
-import { useState, useContext } from "react";
+import { useState, useContext, useEffect } from "react";
 
 import {
   Container,
@@ -18,8 +18,12 @@ import UserContext from "../../contexts/UserContext";
 export default function LoginScreen() {
   const [login, SetLogin] = useState({ email: "", password: "" });
   const [submited, SetSubmited] = useState(false);
-  const { SetUserInfo } = useContext(UserContext);
+  const { userInfo, SetUserInfo } = useContext(UserContext);
   const Navigate = useNavigate();
+
+  useEffect(() => {
+    if (userInfo !== null) Navigate("/hoje");
+  }, []);
 
   function handleSubmit(event) {
     event.preventDefault();

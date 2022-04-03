@@ -9,7 +9,7 @@ export default function Top() {
     <Header>
       <div>
         <p>TrackIt</p>
-        <img src={userInfo.image} alt="" />
+        <img src={userInfo !== null ? userInfo.image : ""} alt="" />
       </div>
     </Header>
   );
