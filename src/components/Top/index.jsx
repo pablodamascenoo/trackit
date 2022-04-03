@@ -6,10 +6,10 @@ export default function Top() {
   const { userInfo } = useContext(UserContext);
 
   return (
-    <Header>
+    <Header imageUrl={userInfo !== null ? userInfo.image : ""}>
       <div>
         <p>TrackIt</p>
-        <img src={userInfo !== null ? userInfo.image : ""} alt="" />
+        <div></div>
       </div>
     </Header>
   );

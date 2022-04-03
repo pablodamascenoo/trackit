@@ -26,10 +26,12 @@ export const Header = styled.header`
     color: #ffffff;
   }
 
-  img {
+  div > div {
     width: 51px;
     height: 51px;
-    border-radius: 98.5px;
-    background: white;
+    border-radius: 50%;
+    background: url(${(props) => `${props.imageUrl}`});
+    background-position: center;
+    background-size: cover;
   }
 `;
