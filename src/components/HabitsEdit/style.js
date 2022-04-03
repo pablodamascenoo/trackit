@@ -1,6 +1,7 @@
 import styled from "styled-components";
 
 export const Container = styled.div`
+  display: ${(props) => (props.hidden ? "none" : "block")};
   margin-top: 20px;
   width: 100%;
   min-height: 91px;

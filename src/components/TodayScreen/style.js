@@ -24,7 +24,7 @@ export const Content = styled.article`
 `;
 
 export const TitleBox = styled.div`
-  min-width: 288px;
+  width: 90%;
   padding-top: 100px;
   & > h2 {
     color: #126ba5;

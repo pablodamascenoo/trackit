@@ -63,15 +63,12 @@ export default function HabitsScreen() {
           <h2>Meus hábitos</h2>
           <button onClick={toggleCreate}>+</button>
         </TitleBox>
-        {create ? (
-          <HabitsEdit
-            cancel={toggleCreate}
-            created={false}
-            addHabits={addHabits}
-          />
-        ) : (
-          <></>
-        )}
+        <HabitsEdit
+          hidden={!create}
+          cancel={toggleCreate}
+          created={false}
+          addHabits={addHabits}
+        />
         {habits.length === 0 ? (
           <p>
             Você não tem nenhum hábito cadastrado ainda. Adicione um hábito para

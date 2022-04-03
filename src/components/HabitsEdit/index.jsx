@@ -16,6 +16,7 @@ export default function HabitsEdit({
   selectedDays,
   habitId,
   delHabits,
+  hidden,
 }) {
   const [selecteds, SetSelecteds] = useState([]);
   const [input, SetInput] = useState("");
@@ -58,12 +59,14 @@ export default function HabitsEdit({
   }
 
   function handleSubmit() {
-    if (selecteds.length === 0) {
-      alert("Escolha pelo menos um dia para o hábito");
+    SetSubmited(true);
+
+    if (selecteds.length === 0 || input === "") {
+      alert("Preencha corretamente os campos!");
+      SetSubmited(false);
       return;
     }
 
-    SetSubmited(true);
     const promisse = axios.post(
       "https://mock-api.bootcamp.respondeai.com.br/api/v2/trackit/habits",
       { name: input, days: selecteds },
@@ -84,7 +87,7 @@ export default function HabitsEdit({
   }
 
   return (
-    <Container>
+    <Container hidden={hidden}>
       <Content disabled={submited}>
         {created ? (
           <h2>{title}</h2>
