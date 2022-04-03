@@ -22,7 +22,7 @@ export default function HabitsEdit({
   const [submited, SetSubmited] = useState(false);
   const { userInfo } = useContext(UserContext);
 
-  const days = [7, 1, 2, 3, 4, 5, 6];
+  const days = [0, 1, 2, 3, 4, 5, 6];
 
   selectedDays = selectedDays === undefined ? [] : selectedDays;
 

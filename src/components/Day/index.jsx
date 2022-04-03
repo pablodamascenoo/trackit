@@ -11,7 +11,7 @@ export default function Day({
 }) {
   const [selected, SetSelected] = useState(alrSelected);
 
-  const days = ["S", "T", "Q", "Q", "S", "S", "D"];
+  const days = ["D", "S", "T", "Q", "Q", "S", "S"];
 
   return (
     <Button
@@ -22,7 +22,7 @@ export default function Day({
       }}
       selected={selected}
     >
-      {days[id - 1]}
+      {days[id]}
     </Button>
   );
 }
