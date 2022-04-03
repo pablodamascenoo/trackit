@@ -28,7 +28,10 @@ export default function TodayScreen() {
   };
 
   useEffect(() => {
-    if (userInfo === null) Navigate("/");
+    if (userInfo === null) {
+      Navigate("/");
+      return;
+    }
     const promisse = axios.get(
       "https://mock-api.bootcamp.respondeai.com.br/api/v2/trackit/habits/today",
       config

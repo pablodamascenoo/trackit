@@ -5,6 +5,7 @@ import PercentContext from "../../contexts/PercentContext";
 import UserContext from "../../contexts/UserContext";
 
 import { useContext, useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import axios from "axios";
 
 import { Container } from "../TodayScreen/style";
@@ -14,12 +15,14 @@ export default function HabitsScreen() {
   const { percent } = useContext(PercentContext);
   const { userInfo } = useContext(UserContext);
 
+  const Navigate = useNavigate();
+
   const [habits, SetHabits] = useState([]);
   const [create, SetCreate] = useState(false);
 
   const config = {
     headers: {
-      Authorization: `Bearer ${userInfo.token}`,
+      Authorization: `Bearer ${userInfo !== null ? userInfo.token : null}`,
     },
   };
 
@@ -36,6 +39,11 @@ export default function HabitsScreen() {
   }
 
   useEffect(() => {
+    if (userInfo === null) {
+      Navigate("/");
+      return;
+    }
+
     const promisse = axios.get(
       "https://mock-api.bootcamp.respondeai.com.br/api/v2/trackit/habits",
       config
