@@ -41,9 +41,12 @@ export default function TodayScreen() {
       const { data } = obj;
       SetHabits([...data]);
       SetPercent(
-        (
-          data.filter((item) => (item.done ? true : false)).length / data.length
-        ).toFixed(2)
+        data.length !== 0
+          ? (
+              data.filter((item) => (item.done ? true : false)).length /
+              data.length
+            ).toFixed(2)
+          : 0
       );
     });
   }, [state]);
