@@ -78,7 +78,11 @@ export default function LoginScreen() {
           }}
         />
         <Button disabled={submited} type="submit">
-          {submited ? <ThreeDots color="#ffffff" /> : "Entrar"}
+          {submited ? (
+            <ThreeDots color="#ffffff" width={51} height={13} />
+          ) : (
+            "Entrar"
+          )}
         </Button>
       </Form>
       <Link to="/cadastro">

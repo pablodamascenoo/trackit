@@ -19,12 +19,13 @@ export const Form = styled.form`
 export const Input = styled.input`
   width: 303px;
   height: 45px;
-  background-color: white;
+  background-color: ${(props) => (props.disabled ? "#F2F2F2" : "white")};
   border: 1px solid #d5d5d5;
   border-radius: 5px;
   padding-left: 11px;
   font-size: 20px;
   font-family: "Lexend Deca", sans-serif;
+  color: #666666;
 
   ::placeholder {
     font-family: "Lexend Deca", sans-serif;
@@ -41,10 +42,12 @@ export const Button = styled.button`
   border-radius: 5px;
   font-size: 21px;
   background: #52b6ff;
+  opacity: ${(props) => (props.disabled ? 0.7 : 1)};
   display: flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
+  font-family: "Lexend Deca", sans-serif;
 `;
 
 export const Logo = styled.img`

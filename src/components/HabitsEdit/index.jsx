@@ -78,7 +78,7 @@ export default function HabitsEdit({
 
   return (
     <Container>
-      <Content>
+      <Content disabled={submited}>
         {created ? (
           <h2>{title}</h2>
         ) : (
@@ -119,7 +119,7 @@ export default function HabitsEdit({
         {created ? (
           <></>
         ) : (
-          <SubmitButtons>
+          <SubmitButtons disabled={submited}>
             <p onClick={!submited ? cancel : () => {}}>Cancelar</p>
             {
               <button type="submit" onClick={handleSubmit}>

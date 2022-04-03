@@ -94,7 +94,11 @@ export default function RegisterScreen() {
           }}
         />
         <Button disabled={submited} type="submit">
-          {submited ? <ThreeDots color="#ffffff" /> : "Cadastrar"}
+          {submited ? (
+            <ThreeDots color="#ffffff" width={51} height={13} />
+          ) : (
+            "Cadastrar"
+          )}
         </Button>
       </Form>
       <Link to="/">

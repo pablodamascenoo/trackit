@@ -36,7 +36,7 @@ export const Content = styled.div`
   input {
     width: 303px;
     height: 45px;
-    background: #ffffff;
+    background: ${(props) => (props.disabled ? "#F2F2F2" : "white")};
     border: 1px solid #d5d5d5;
     border-radius: 5px;
     color: #666666;
@@ -66,6 +66,7 @@ export const SubmitButtons = styled.div`
     width: 84px;
     height: 35px;
     background-color: #52b6ff;
+    opacity: ${(props) => (props.disabled ? 0.7 : 1)};
     border-radius: 4.6px;
     border: none;
     color: #fff;
