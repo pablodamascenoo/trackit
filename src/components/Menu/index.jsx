@@ -30,7 +30,7 @@ export default function Menu({ done }) {
             />
           </Link>
         </div>
-        <Link to="/">
+        <Link to="/historico">
           <p>Histórico</p>
         </Link>
       </div>

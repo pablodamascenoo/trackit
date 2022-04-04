@@ -76,8 +76,8 @@ export default function HabitsEdit({
     promisse.then((obj) => {
       const { data } = obj;
       SetSubmited(false);
+      SetInput("");
       addHabits(data);
-      cancel();
     });
 
     promisse.catch((error) => {

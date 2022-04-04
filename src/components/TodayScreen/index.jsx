@@ -14,6 +14,7 @@ import { useNavigate } from "react-router-dom";
 export default function TodayScreen() {
   require("dayjs/locale/pt-br");
 
+  // TODO: Create an context with todayHabits
   const [habits, SetHabits] = useState([]);
   const { percent, SetPercent } = useContext(PercentContext);
   const [state, SetState] = useState(false);
